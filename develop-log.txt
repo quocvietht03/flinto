@@ -1,0 +1,46 @@
+/**
+ * @since 1.0.2
+ * Develop log
+ *
+ */
+
+
+{
+    * Add theme custom metabox for custom post type 
+    * Note: Template use vueJS
+    *
+    * Also can use https://carbonfields.net/docs/ create custom post type. Carbonfields available for this theme;
+
+    Step 1: 
+        + create a php file (Path: /inc/meta-box/team.php ) with the same name as post type name ( Post type "team" => team.php )
+    
+    Step 2: 
+        @hook flintotheme_metabox_posttype_support_filter
+            + Apply custom metabox js render template
+            + Exam with custom post type "team":
+                function team_metabox_posttype_support( $data ) {
+                    $data['team'] = 'customizeOverride';
+                    return $data;
+                }
+}
+
+{
+    * Use Carbonfields
+    * Link document: https://carbonfields.net/docs/
+
+    Step 1:
+        + @hook carbon_fields_register_fields
+        + Exam:
+            add_action( 'carbon_fields_register_fields', '[your_function]' );
+
+    Step 2: 
+        + Create function 
+        + Exam:
+            function your_function() {
+                Carbon_Fields\Container::make( 'theme_options', 'Theme Options' )
+                ->add_fields( array(
+                    Carbon_Fields\Field::make( 'text', 'crb_facebook_url') ,
+                    Carbon_Fields\Field::make( 'textarea', 'crb_footer_text' )
+                ) );
+            }
+}
