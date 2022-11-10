@@ -37,7 +37,7 @@
     "animejs": "^2.2.0",
     "brace": "^0.10.0",
     "css-element-queries": "^0.4.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "jarallax": "^1.9.0",
     "nprogress": "^0.2.0",
     "save": "^2.3.1",
